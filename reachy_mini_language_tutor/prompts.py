@@ -1,10 +1,13 @@
 import re
 import sys
 import logging
+from typing import TYPE_CHECKING
 from pathlib import Path
 
 from reachy_mini_language_tutor.config import config
 
+if TYPE_CHECKING:
+    from openai.types.realtime import AudioTranscriptionParam
 
 logger = logging.getLogger(__name__)
 
@@ -126,6 +129,14 @@ def get_session_language(default: str = "en") -> str:
     except Exception:
         pass
     return default
+
+
+def get_session_transcription() -> "AudioTranscriptionParam":
+    """Build the Realtime input transcription settings for the active profile."""
+    language = get_session_language()
+    if language == "auto":
+        return {"model": "gpt-4o-transcribe"}
+    return {"model": "gpt-4o-transcribe", "language": language}
 
 
 def get_profile_proactive_mode(default: bool = False) -> bool:
