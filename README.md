@@ -13,7 +13,7 @@ tags:
 
 # Reachy Language Partner
 
-Practice conversational skills in French, Spanish, German, Italian, Portuguese, or any language through natural dialogue with an expressive robot companion. Your robot partner remembers your progress across sessions, celebrates your successes with dances and expressions, and helps when you get stuck.
+Practice conversational skills in French, Spanish, German, Italian, Portuguese, English (with Italian support), or any language through natural dialogue with an expressive robot companion. Your robot partner remembers your progress across sessions, celebrates your successes with dances and expressions, and helps when you get stuck.
 
 
 https://github.com/user-attachments/assets/d3c131ed-856c-4cbd-8a29-767420eed220
@@ -96,7 +96,9 @@ reachy-mini-language-tutor --profile english_for_italians
 reachy-mini-language-tutor
 ```
 
-Add `--gradio` for a web interface with live transcripts at http://127.0.0.1:7860/
+Add `--gradio` for a web interface with live transcripts at http://127.0.0.1:7860/. You can also select `english_for_italians` from the tutor dropdown. For this profile, Italian and English can be mixed in conversation: `language.txt` contains `auto`, so the Realtime transcription request has no fixed language hint.
+
+Persistent memory is optional. The existing memory backend does not isolate learners or tutor profiles when searching memories; use a dedicated SuperMemory account or disable memory on shared robots. Configure the API key before launching the app.
 
 ## How It Works
 
@@ -121,7 +123,7 @@ Want to practice Japanese, Mandarin, or another language? Create a new profile:
    - List relevant **cultural topics**
 4. Set `language.txt` to ISO code (e.g., `ja`) for transcription, or `auto` to omit the language hint for multilingual practice.
 
-**Template-Based Design**: Tutors inherit 13 shared sections (~165 lines) from `prompts/language_tutoring/` using `[placeholder]` syntax. You only write unique content—shared teaching methodology is automatically included.
+**Template-Based Design**: Most tutors inherit shared sections from `prompts/language_tutoring/` using `[placeholder]` syntax. These sections assume an English-speaking learner; `english_for_italians` uses a self-contained prompt so Italian is the support language instead.
 
 See existing tutors for examples. Each is ~100-150 lines focused on language-specific content.
 
