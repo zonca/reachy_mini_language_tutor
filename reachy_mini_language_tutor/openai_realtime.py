@@ -276,7 +276,11 @@ The following is what you remember about this learner from previous sessions:
                                     "type": "audio/pcm",
                                     "rate": self.input_sample_rate,
                                 },
-                                "transcription": {"model": "gpt-4o-transcribe", "language": get_session_language()},
+                                "transcription": (
+                                    {"model": "gpt-4o-transcribe"}
+                                    if get_session_language() == "auto"
+                                    else {"model": "gpt-4o-transcribe", "language": get_session_language()}
+                                ),
                                 "turn_detection": {
                                     "type": "server_vad",
                                     "interrupt_response": True,
