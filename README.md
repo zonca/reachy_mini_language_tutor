@@ -42,6 +42,7 @@ https://github.com/user-attachments/assets/d3c131ed-856c-4cbd-8a29-767420eed220
 | `german_tutor` | Lukas, a German tutor teaching Standard German (Hochdeutsch) |
 | `italian_tutor` | Chiara, an Italian tutor from Florence with cultural insights |
 | `portuguese_tutor` | Rafael, a Brazilian Portuguese tutor from São Paulo |
+| `english_for_italians` | Alex, an American English tutor for native Italian speakers |
 
 ## Quick Start
 
@@ -88,6 +89,9 @@ reachy-mini-language-tutor --profile french_tutor
 # Practice Spanish
 reachy-mini-language-tutor --profile spanish_tutor
 
+# Practice English with Italian explanations
+reachy-mini-language-tutor --profile english_for_italians
+
 # Practice any language (robot will ask what you want to learn)
 reachy-mini-language-tutor
 ```
@@ -115,7 +119,7 @@ Want to practice Japanese, Mandarin, or another language? Create a new profile:
    - Add **language-specific teaching approach** (optional)
    - Create **example interactions** in the target language
    - List relevant **cultural topics**
-4. Set `language.txt` to ISO code (e.g., `ja`) for transcription
+4. Set `language.txt` to ISO code (e.g., `ja`) for transcription, or `auto` to omit the language hint for multilingual practice.
 
 **Template-Based Design**: Tutors inherit 13 shared sections (~165 lines) from `prompts/language_tutoring/` using `[placeholder]` syntax. You only write unique content—shared teaching methodology is automatically included.
 
