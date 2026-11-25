@@ -112,7 +112,8 @@ def get_session_language(default: str = "en") -> str:
     If a custom profile is selected and contains a language.txt, return its
     trimmed content; otherwise return the provided default ("en").
 
-    Supports ISO 639-1 language codes: en, fr, es, de, etc.
+    Supports ISO 639-1 language codes: en, fr, es, de, etc., or "auto"
+    to omit the transcription language hint for multilingual conversations.
     """
     profile = config.REACHY_MINI_CUSTOM_PROFILE
     if not profile:
