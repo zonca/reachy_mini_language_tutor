@@ -17,7 +17,12 @@ from scipy.signal import resample
 from websockets.exceptions import ConnectionClosedError
 
 from reachy_mini_language_tutor.config import config
-from reachy_mini_language_tutor.prompts import get_session_voice, get_session_language, get_session_instructions
+from reachy_mini_language_tutor.prompts import (
+    get_session_voice,
+    get_session_language,
+    get_session_instructions,
+    get_session_transcription,
+)
 from reachy_mini_language_tutor.tools.core_tools import (
     ToolDependencies,
     get_tool_specs,
@@ -276,7 +281,7 @@ The following is what you remember about this learner from previous sessions:
                                     "type": "audio/pcm",
                                     "rate": self.input_sample_rate,
                                 },
-                                "transcription": {"model": "gpt-4o-transcribe", "language": get_session_language()},
+                                "transcription": get_session_transcription(),
                                 "turn_detection": {
                                     "type": "server_vad",
                                     "interrupt_response": True,

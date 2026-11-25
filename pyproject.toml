@@ -75,6 +75,7 @@ include = ["reachy_mini_language_tutor*"]
 reachy_mini_language_tutor = [
   "images/*",
   "static/*",
+  "profile_metadata.json",
   ".env.example",
   "demos/**/*.txt",
   "prompts_library/*.txt",
