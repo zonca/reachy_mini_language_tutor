@@ -39,6 +39,14 @@
     "level": "Beginner-friendly",
     "accent_color": "#FDB913"
   },
+  "english_for_italians": {
+    "display_name": "Alex (English for Italian speakers)",
+    "language": "American English",
+    "flag_emoji": "🇺🇸",
+    "short_description": "Practice English with explanations in Italian",
+    "level": "All levels",
+    "accent_color": "#4ECDC4"
+  },
   "default": {
     "display_name": "Language Partner",
     "language": "Any Language",
